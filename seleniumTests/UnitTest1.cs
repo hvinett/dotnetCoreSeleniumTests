@@ -51,14 +51,17 @@ namespace seleniumTests
 
             private RemoteWebDriver GetChromeDriver()
             {
+                ChromeOptions options = new ChromeOptions();
+                options.AddArgument("headless");
+                options.AddArgument("no-sandbox");
                 var path = Environment.GetEnvironmentVariable("ChromeWebDriver");
                 if (!string.IsNullOrWhiteSpace(path))
                 {
-                    return new ChromeDriver(path);
+                    return new ChromeDriver(path,options);
                 }
                 else
                 {
-                    return new ChromeDriver();
+                    return new ChromeDriver(options);
                 }
             }
 
