@@ -68,6 +68,9 @@ namespace seleniumTests
             private RemoteWebDriver GetFirefoxDriver()
             {
                 var path = Environment.GetEnvironmentVariable("GeckoWebDriver");
+                //DesiredCapabilities capabilities = DesiredCapabilities.
+                FirefoxOptions options = new FirefoxOptions();
+                options.AddAdditionalCapability("marionette", true);
                 if (!string.IsNullOrWhiteSpace(path))
                 {
                     return new FirefoxDriver(path);
