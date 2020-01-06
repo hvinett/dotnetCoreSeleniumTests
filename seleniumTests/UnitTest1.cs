@@ -23,7 +23,7 @@ namespace seleniumTests
 
             public TestContext Testcontext {get;set;}
             [TestMethod]
-            [DataRow("chrome")]
+            //[DataRow("chrome")]
             [DataRow("firefox")]
             public void SearchPageTest(string browser)
             {
@@ -74,10 +74,6 @@ namespace seleniumTests
                 var path = Environment.GetEnvironmentVariable("GeckoWebDriver");
                 //DesiredCapabilities capabilities = DesiredCapabilities.
                 FirefoxOptions options = new FirefoxOptions();
-
-                //options.AddAdditionalCapability()
-                //options.UseLegacyImplementation = true;
-                //options.AddAdditionalCapability(options.ToCapabilities().GetCapability("marionette"), true);
                
                 if (!string.IsNullOrWhiteSpace(path))
                 {
