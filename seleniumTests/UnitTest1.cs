@@ -20,6 +20,8 @@ namespace seleniumTests
         [TestClass]
         public class UnitTest1
         {
+
+            public TestContext Testcontext {get;set;}
             [TestMethod]
             [DataRow("chrome")]
             [DataRow("firefox")]
@@ -29,6 +31,8 @@ namespace seleniumTests
                 driver.Navigate().GoToUrl("http://www.google.com");
                 var filePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString()) + ".png";
                 var screenshot = driver.GetScreenshot();
+                screenshot.SaveAsFile(filePath);
+                TestContext.AddResultFile(filePath);
                 screenshot.SaveAsFile(filePath);             
                 driver.Quit();
             }
@@ -70,6 +74,10 @@ namespace seleniumTests
                 var path = Environment.GetEnvironmentVariable("GeckoWebDriver");
                 //DesiredCapabilities capabilities = DesiredCapabilities.
                 FirefoxOptions options = new FirefoxOptions();
+                
+                //options.AddAdditionalCapability()
+                
+                options.UseLegacyImplementation = true;
                 options.AddAdditionalCapability("marionette", true);
                 if (!string.IsNullOrWhiteSpace(path))
                 {
