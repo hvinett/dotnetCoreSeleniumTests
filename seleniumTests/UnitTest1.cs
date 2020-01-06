@@ -74,11 +74,11 @@ namespace seleniumTests
                 var path = Environment.GetEnvironmentVariable("GeckoWebDriver");
                 //DesiredCapabilities capabilities = DesiredCapabilities.
                 FirefoxOptions options = new FirefoxOptions();
-                
+
                 //options.AddAdditionalCapability()
-                
-                options.UseLegacyImplementation = true;
-                options.AddAdditionalCapability("marionette", true);
+                //options.UseLegacyImplementation = true;
+                //options.AddAdditionalCapability(options.ToCapabilities().GetCapability("marionette"), true);
+               
                 if (!string.IsNullOrWhiteSpace(path))
                 {
                     return new FirefoxDriver(path);

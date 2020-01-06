@@ -1,0 +1,5 @@
+.vs 
+seleniumTests/bin 
+seleniumTests/obj 
+seleniumTests/.vs 
+
