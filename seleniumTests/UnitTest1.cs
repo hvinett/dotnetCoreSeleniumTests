@@ -81,7 +81,7 @@ namespace seleniumTests
                 }
                 else
                 {
-                    return new FirefoxDriver();
+                    return new FirefoxDriver(options);
                 }
             }
 
